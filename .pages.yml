@@ -1,0 +1,224 @@
+media:
+  - name: images
+    label: Images
+    input: Assets
+    output: /Assets
+    categories: [image]
+    rename: false
+  - name: videos
+    label: Videos
+    input: Assets
+    output: /Assets
+    categories: [video]
+    rename: false
+  - name: documents
+    label: Documents
+    input: Assets
+    output: /Assets
+    categories: [document]
+    extensions: [pdf]
+    rename: false
+
+content:
+  - name: site
+    label: Site content
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: siteTitle
+        label: Browser title
+        type: string
+        required: true
+      - name: logo
+        label: Site logo
+        type: string
+        required: true
+      - name: navigation
+        label: Navigation
+        type: object
+        fields:
+          - name: home
+            type: string
+            required: true
+          - name: portfolio
+            type: string
+            required: true
+          - name: resume
+            type: string
+            required: true
+      - name: hero
+        label: Home hero
+        type: object
+        fields:
+          - name: name
+            type: string
+            required: true
+          - name: subtitle
+            type: string
+            required: true
+          - name: description
+            type: rich-text
+            required: true
+          - name: profileImage
+            label: Profile image
+            type: image
+            options:
+              media: images
+              path: Assets
+      - name: contact
+        label: Contact section
+        type: object
+        fields:
+          - name: label
+            type: string
+            required: true
+          - name: note
+            type: text
+            required: true
+          - name: links
+            label: Contact links
+            type: object
+            list: true
+            fields:
+              - name: label
+                type: string
+                required: true
+              - name: detail
+                type: string
+                required: true
+              - name: kind
+                type: select
+                options:
+                  values: [email, external]
+                required: true
+              - name: value
+                label: Email or URL
+                type: string
+                required: true
+              - name: icon
+                type: string
+                required: true
+      - name: footer
+        label: Footer
+        type: object
+        fields:
+          - name: text
+            type: string
+            required: true
+      - name: resume
+        label: Resume
+        type: object
+        fields:
+          - name: title
+            type: string
+            required: true
+          - name: downloadLabel
+            type: string
+            required: true
+          - name: file
+            type: file
+            options:
+              media: documents
+              path: Assets
+              extensions: [pdf]
+              unique: true
+          - name: viewerTitle
+            type: string
+            required: true
+          - name: fallbackText
+            type: string
+            required: true
+          - name: fallbackLinkLabel
+            type: string
+            required: true
+
+  - name: projects
+    label: Portfolio projects
+    type: file
+    path: content/projects.json
+    format: json
+    fields:
+      - name: pageTitle
+        label: Portfolio title
+        type: string
+        required: true
+      - name: categories
+        label: Project categories
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Category name
+            type: string
+            required: true
+          - name: projects
+            type: object
+            list: true
+            fields:
+              - name: id
+                label: Project ID
+                type: string
+                required: true
+              - name: title
+                type: string
+                required: true
+              - name: gallery
+                label: Gallery
+                type: block
+                list: true
+                blockKey: type
+                blocks:
+                  - name: image
+                    fields:
+                      - name: src
+                        type: image
+                        options:
+                          media: images
+                          path: Assets
+                      - name: alt
+                        type: string
+                        required: true
+                  - name: video
+                    fields:
+                      - name: src
+                        type: file
+                        options:
+                          media: videos
+                          path: Assets
+                          extensions: [mp4]
+                      - name: poster
+                        type: image
+                        options:
+                          media: images
+                          path: Assets
+                      - name: alt
+                        type: string
+                        required: true
+              - name: descriptions
+                label: Description bullets
+                type: text
+                list: true
+              - name: links
+                label: Project links
+                type: object
+                list: true
+                fields:
+                  - name: label
+                    type: string
+                    required: true
+                  - name: url
+                    type: string
+                    required: true
+                  - name: style
+                    type: select
+                    options:
+                      values: [primary, secondary]
+                    required: true
+
+settings:
+  commit:
+    templates:
+      create: "content: add {name}"
+      update: "content: update {name}"
+      delete: "content: remove {name}"

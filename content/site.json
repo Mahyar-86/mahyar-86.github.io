@@ -1,0 +1,60 @@
+{
+  "siteTitle": "Mahyar Kazazi",
+  "logo": "Mahyar Kazazi",
+  "navigation": {
+    "home": "Main",
+    "portfolio": "Portfolio",
+    "resume": "Resume"
+  },
+  "hero": {
+    "name": "I am Mahyar Kazazi",
+    "subtitle": "A Game Developer",
+    "description": "Hi! I'm <b>Mahyar</b>, a passionate developer with <b>2.5+ years</b> of practical experience in <b>Game</b> and <b>Arch-Viz</b> projects. I specialize in <b>Unreal Engine</b> and <b>C++</b>, and I'm looking forward to working on <b>serious</b> projects.",
+    "profileImage": "Assets/Profile.jpg"
+  },
+  "contact": {
+    "label": "Let's connect",
+    "note": "Open to game development, custom tools, and Archviz projects.",
+    "links": [
+      {
+        "label": "Work Email",
+        "detail": "mahyar.kazazi.work@gmail.com",
+        "kind": "email",
+        "value": "mahyar.kazazi.work@gmail.com",
+        "icon": "@"
+      },
+      {
+        "label": "Academic Email",
+        "detail": "mahyar.kazazi.edu@gmail.com",
+        "kind": "email",
+        "value": "mahyar.kazazi.edu@gmail.com",
+        "icon": "@"
+      },
+      {
+        "label": "LinkedIn",
+        "detail": "Professional profile",
+        "kind": "external",
+        "value": "https://linkedin.com/in/MahyarKazazi/",
+        "icon": "in"
+      },
+      {
+        "label": "GitHub",
+        "detail": "Projects and code",
+        "kind": "external",
+        "value": "https://github.com/Mahyar-86/",
+        "icon": "</>"
+      }
+    ]
+  },
+  "footer": {
+    "text": "© 2026 Mahyar. All rights reserved."
+  },
+  "resume": {
+    "title": "My Resume",
+    "downloadLabel": "Download PDF",
+    "file": "Assets/Mahyar_Kazazi_Resume.pdf",
+    "viewerTitle": "Mahyar Kazazi resume",
+    "fallbackText": "Your browser cannot display the resume here.",
+    "fallbackLinkLabel": "Open the resume PDF"
+  }
+}

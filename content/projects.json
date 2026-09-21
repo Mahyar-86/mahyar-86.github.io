@@ -1,0 +1,180 @@
+{
+  "pageTitle": "Portfolio",
+  "categories": [
+    {
+      "name": "Arch-Viz Projects",
+      "projects": [
+        {
+          "id": "project-1",
+          "title": "Apollo Tower at Apollo Rendering Studios",
+          "gallery": [
+            { "type": "image", "src": "Assets/ApolloTower/ApolloTower_Photo1.png", "alt": "Apollo Tower Screenshot 1" },
+            { "type": "image", "src": "Assets/ApolloTower/ApolloTower_Photo2.png", "alt": "Apollo Tower Screenshot 2" },
+            { "type": "image", "src": "Assets/ApolloTower/ApolloTower_Photo3.png", "alt": "Apollo Tower Screenshot 3" },
+            { "type": "image", "src": "Assets/ApolloTower/ApolloTower_Photo4.png", "alt": "Apollo Tower Screenshot 4" },
+            { "type": "image", "src": "Assets/ApolloTower/ApolloTower_Photo5.png", "alt": "Apollo Tower Screenshot 5" },
+            { "type": "image", "src": "Assets/ApolloTower/ApolloTower_Photo6.png", "alt": "Apollo Tower Screenshot 6" },
+            { "type": "video", "src": "Assets/ApolloTower/ApolloTower_Video1.mp4", "poster": "Assets/ApolloTower/ApolloTower_Video1_Thumbnail.jpg", "alt": "Apollo Tower video" }
+          ],
+          "descriptions": [
+            "Part-time Unreal Engine C++ Developer on a commercial Arch-Viz product.",
+            "Built complex systems, custom editor tools, and plugins in Unreal Engine C++ under senior code review.",
+            "Delivered production-ready code following professional architecture and workflows.",
+            "Developed a digital sales-presentation platform that transforms completed real-estate projects into an interactive software experience, helping developers showcase units, present building information, and support buyers during the sales process.",
+            "Developed with Unreal Engine and C++."
+          ],
+          "links": [
+            { "label": "Apollo LinkedIn", "url": "https://www.linkedin.com/company/apollo-rd/about/", "style": "primary" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Game Projects",
+      "projects": [
+        {
+          "id": "project-2",
+          "title": "Internship Project: FPS Tower Defence",
+          "gallery": [
+            { "type": "image", "src": "Assets/Internship/Internship_Photo1.png", "alt": "Internship Screenshot 1" },
+            { "type": "image", "src": "Assets/Internship/Internship_Photo2.png", "alt": "Internship Screenshot 2" },
+            { "type": "image", "src": "Assets/Internship/Internship_Photo3.png", "alt": "Internship Screenshot 3" },
+            { "type": "image", "src": "Assets/Internship/Internship_Photo4.png", "alt": "Internship Screenshot 4" },
+            { "type": "image", "src": "Assets/Internship/Internship_Photo5.png", "alt": "Internship Screenshot 5" },
+            { "type": "video", "src": "Assets/Internship/Internship_Video1.mp4", "poster": "Assets/Internship/Internship_Video1_Thumbnail.jpg", "alt": "Internship project video" }
+          ],
+          "descriptions": [
+            "This is a first-person shooter tower defence game that we created in the internship program.",
+            "In this game, you have to defend the base by killing the enemies by creating multiple towers.",
+            "But towers are not enough, and you have to deal with enemies yourself with your gun.",
+            "I created most technical parts of the game, such as enemies, towers, character movement, shooting, minimap, etc.",
+            "Developed with Unreal Engine and Blueprint."
+          ],
+          "links": [
+            { "label": "GitHub", "url": "https://github.com/Mahyar-86/FPS_TTW", "style": "primary" }
+          ]
+        },
+        {
+          "id": "project-3",
+          "title": "Miner",
+          "gallery": [
+            { "type": "image", "src": "Assets/Miner/Miner_Photo1.png", "alt": "Miner Screenshot 1" },
+            { "type": "image", "src": "Assets/Miner/Miner_Photo2.png", "alt": "Miner Screenshot 2" },
+            { "type": "image", "src": "Assets/Miner/Miner_Photo3.png", "alt": "Miner Screenshot 3" },
+            { "type": "image", "src": "Assets/Miner/Miner_Photo4.png", "alt": "Miner Screenshot 4" },
+            { "type": "image", "src": "Assets/Miner/Miner_Photo5.png", "alt": "Miner Screenshot 5" },
+            { "type": "image", "src": "Assets/Miner/Miner_Photo6.png", "alt": "Miner Screenshot 6" },
+            { "type": "image", "src": "Assets/Miner/Miner_Photo7.png", "alt": "Miner Screenshot 7" },
+            { "type": "image", "src": "Assets/Miner/Miner_Photo8.png", "alt": "Miner Screenshot 8" },
+            { "type": "video", "src": "Assets/Miner/Miner_Video1.mp4", "poster": "Assets/Miner/Miner_Video1_Thumbnail.jpg", "alt": "Miner video" }
+          ],
+          "descriptions": [
+            "Miner is a horror game prototype where you find gold in dungeons while a blind, dangerous ghost is chasing you.",
+            "This ghost has an advanced AI system with multiple abilities and behaviors created with a Behavior Tree.",
+            "I created the player mechanics and environment interactions, including walls, obstacles, and the pickaxe.",
+            "Developed with Unreal Engine, C++, and Blueprint."
+          ],
+          "links": [
+            { "label": "GitHub", "url": "https://github.com/Mahyar-86/IP_Miner", "style": "primary" }
+          ]
+        },
+        {
+          "id": "project-4",
+          "title": "Egg League",
+          "gallery": [
+            { "type": "image", "src": "Assets/EggLeague/EggLeague_Photo1.jpg", "alt": "Egg League Screenshot 1" },
+            { "type": "image", "src": "Assets/EggLeague/EggLeague_Photo2.png", "alt": "Egg League Screenshot 2" },
+            { "type": "image", "src": "Assets/EggLeague/EggLeague_Photo3.png", "alt": "Egg League Screenshot 3" },
+            { "type": "image", "src": "Assets/EggLeague/EggLeague_Photo4.png", "alt": "Egg League Screenshot 4" },
+            { "type": "image", "src": "Assets/EggLeague/EggLeague_Photo5.png", "alt": "Egg League Screenshot 5" },
+            { "type": "video", "src": "Assets/EggLeague/EggLeague_Video1.mp4", "poster": "Assets/EggLeague/EggLeague_Video1_Thumbnail.jpg", "alt": "Egg League video" }
+          ],
+          "descriptions": [
+            "A two-player game where you and your friend battle it out to collect eggs.",
+            "The map is filled with obstacles, and your opponent will be trying to stop you. You can also attack each other, and if you're lucky, you can steal your opponent's eggs!",
+            "Egg League is a fun game that will test your skills and your friendship. So gather your friends and get ready for a wild ride!",
+            "Developed with Unreal Engine and Blueprint."
+          ],
+          "links": [
+            { "label": "GitHub", "url": "https://github.com/Mahyar-86/EggLeague", "style": "primary" },
+            { "label": "GGJ Page", "url": "https://globalgamejam.org/games/2024/egg-league-8", "style": "secondary" }
+          ]
+        },
+        {
+          "id": "project-5",
+          "title": "Old Projects",
+          "gallery": [
+            { "type": "image", "src": "Assets/OldProjects/OldProjects_Photo1.jpg", "alt": "Old Projects Screenshot 1" },
+            { "type": "image", "src": "Assets/OldProjects/OldProjects_Photo2.jpg", "alt": "Old Projects Screenshot 2" },
+            { "type": "image", "src": "Assets/OldProjects/OldProjects_Photo3.jpg", "alt": "Old Projects Screenshot 3" },
+            { "type": "image", "src": "Assets/OldProjects/OldProjects_Photo4.jpg", "alt": "Old Projects Screenshot 4" },
+            { "type": "image", "src": "Assets/OldProjects/OldProjects_Photo5.jpg", "alt": "Old Projects Screenshot 5" },
+            { "type": "image", "src": "Assets/OldProjects/OldProjects_Photo6.jpg", "alt": "Old Projects Screenshot 6" },
+            { "type": "image", "src": "Assets/OldProjects/OldProjects_Photo7.jpg", "alt": "Old Projects Screenshot 7" },
+            { "type": "video", "src": "Assets/OldProjects/OldProjects_Video1.mp4", "poster": "Assets/OldProjects/OldProjects_Video1_Thumbnail.jpg", "alt": "Old Projects video 1" },
+            { "type": "video", "src": "Assets/OldProjects/OldProjects_Video2.mp4", "poster": "Assets/OldProjects/OldProjects_Video2_Thumbnail.jpg", "alt": "Old Projects video 2" },
+            { "type": "video", "src": "Assets/OldProjects/OldProjects_Video3.mp4", "poster": "Assets/OldProjects/OldProjects_Video3_Thumbnail.jpg", "alt": "Old Projects video 3" },
+            { "type": "video", "src": "Assets/OldProjects/OldProjects_Video4.mp4", "poster": "Assets/OldProjects/OldProjects_Video4_Thumbnail.jpg", "alt": "Old Projects video 4" }
+          ],
+          "descriptions": [
+            "Some of my old game projects.",
+            "Developed with Unreal Engine, Blueprint, C++, Unity, and C#."
+          ],
+          "links": []
+        }
+      ]
+    },
+    {
+      "name": "App Projects",
+      "projects": [
+        {
+          "id": "project-6",
+          "title": "Weather",
+          "gallery": [
+            { "type": "image", "src": "Assets/Weather/Weather_Photo1.png", "alt": "Weather Screenshot 1" },
+            { "type": "image", "src": "Assets/Weather/Weather_Photo2.png", "alt": "Weather Screenshot 2" }
+          ],
+          "descriptions": [
+            "An app that shows temperature and weather status of your city based on your GPS location.",
+            "Developed with Flutter and Dart."
+          ],
+          "links": [
+            { "label": "GitHub", "url": "https://github.com/Mahyar-86/WeatherApp", "style": "primary" }
+          ]
+        },
+        {
+          "id": "project-7",
+          "title": "Online Notepad",
+          "gallery": [
+            { "type": "image", "src": "Assets/OnlineNotepad/OnlineNotepad_Photo1.png", "alt": "Online Notepad Screenshot 1" },
+            { "type": "image", "src": "Assets/OnlineNotepad/OnlineNotepad_Photo2.png", "alt": "Online Notepad Screenshot 2" },
+            { "type": "image", "src": "Assets/OnlineNotepad/OnlineNotepad_Photo3.png", "alt": "Online Notepad Screenshot 3" }
+          ],
+          "descriptions": [
+            "This is an online note app that allows users to write text notes and save them online in their Firebase account.",
+            "Developed with Flutter, Dart, and Firebase."
+          ],
+          "links": [
+            { "label": "GitHub", "url": "https://github.com/Mahyar-86/NoteApp", "style": "primary" }
+          ]
+        },
+        {
+          "id": "project-8",
+          "title": "Todo",
+          "gallery": [
+            { "type": "image", "src": "Assets/Todo/Todo_Photo1.png", "alt": "Todo Screenshot 1" },
+            { "type": "image", "src": "Assets/Todo/Todo_Photo2.png", "alt": "Todo Screenshot 2" },
+            { "type": "image", "src": "Assets/Todo/Todo_Photo3.png", "alt": "Todo Screenshot 3" }
+          ],
+          "descriptions": [
+            "Simple todo app.",
+            "Developed with Flutter and Dart."
+          ],
+          "links": [
+            { "label": "GitHub", "url": "https://github.com/Mahyar-86/TodoApp", "style": "primary" }
+          ]
+        }
+      ]
+    }
+  ]
+}
