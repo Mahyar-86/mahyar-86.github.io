@@ -9,8 +9,8 @@
   "hero": {
     "name": "I am Mahyar Kazazi",
     "subtitle": "A Game Developer",
-    "description": "Hi! I'm <b>Mahyar</b>, a passionate developer with <b>2.5+ years</b> of practical experience in <b>Game</b> and <b>Arch-Viz</b> projects. I specialize in <b>Unreal Engine</b> and <b>C++</b>, and I'm looking forward to working on <b>serious</b> projects.",
-    "profileImage": "Assets/Profile.jpg"
+    "description": "Hi! I'm **Mahyar**, a passionate developer with **2.5+ years** of practical experience in **Game** and **Arch-Viz** projects. I specialize in **Unreal Engine** and **C++**, and I'm looking forward to working on **serious** projects.",
+    "profileImage": "/Assets/Profile.jpg"
   },
   "contact": {
     "label": "Let's connect",
@@ -52,7 +52,7 @@
   "resume": {
     "title": "My Resume",
     "downloadLabel": "Download PDF",
-    "file": "Assets/Mahyar_Kazazi_Resume.pdf",
+    "file": "/Assets/Mahyar_Kazazi_Resume.pdf",
     "viewerTitle": "Mahyar Kazazi resume",
     "fallbackText": "Your browser cannot display the resume here.",
     "fallbackLinkLabel": "Open the resume PDF"
