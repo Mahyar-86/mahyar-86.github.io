@@ -1,23 +1,8 @@
 media:
-  - name: images
-    label: Images
-    input: Assets
-    output: /Assets
-    categories: [image]
-    rename: false
-  - name: videos
-    label: Videos
-    input: Assets
-    output: /Assets
-    categories: [video]
-    rename: false
-  - name: documents
-    label: Documents
-    input: Assets
-    output: /Assets
-    categories: [document]
-    extensions: [pdf]
-    rename: false
+  input: Assets
+  output: /Assets
+  categories: [image, video, document]
+  rename: false
 
 content:
   - name: site
@@ -64,7 +49,6 @@ content:
             label: Profile image
             type: image
             options:
-              media: images
               path: Assets
       - name: contact
         label: Contact section
@@ -119,7 +103,6 @@ content:
           - name: file
             type: file
             options:
-              media: documents
               path: Assets
               extensions: [pdf]
               unique: true
@@ -174,7 +157,6 @@ content:
                       - name: src
                         type: image
                         options:
-                          media: images
                           path: Assets
                       - name: alt
                         type: string
@@ -184,13 +166,11 @@ content:
                       - name: src
                         type: file
                         options:
-                          media: videos
                           path: Assets
                           extensions: [mp4]
                       - name: poster
                         type: image
                         options:
-                          media: images
                           path: Assets
                       - name: alt
                         type: string
