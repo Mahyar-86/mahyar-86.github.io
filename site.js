@@ -10,83 +10,128 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function renderSite(site) {
-    document.title = site.siteTitle;
+    const page = document.documentElement.dataset.page;
+    document.title = page === 'resume' ? `${site.resume.title} - ${site.logo}` : site.siteTitle;
+    renderHeader(site, page);
+    renderFooter(site);
+    renderBackToTop();
 
-    document.querySelectorAll('.nav-logo').forEach(element => {
-        element.textContent = site.logo;
-    });
-    document.querySelectorAll('.nav-link').forEach(link => {
-        const page = link.getAttribute('href');
-        if (page === 'index.html') link.textContent = site.navigation.home;
-        if (page === 'portfolio.html') link.textContent = site.navigation.portfolio;
-        if (page === 'resume.html') link.textContent = site.navigation.resume;
-    });
-
-    const heroTitle = document.querySelector('.hero-title');
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    const heroDescription = document.querySelector('.hero-description');
-    const profileImage = document.querySelector('.profile-image');
-
-    if (heroTitle) heroTitle.textContent = site.hero.name;
-    if (heroSubtitle) heroSubtitle.textContent = site.hero.subtitle;
-    if (heroDescription) heroDescription.innerHTML = renderInlineMarkup(site.hero.description);
-    if (profileImage) {
-        profileImage.src = site.hero.profileImage;
-        profileImage.alt = `${site.logo} profile photo`;
-    }
-
-    const contactLabel = document.querySelector('.contact-label');
-    const contactNote = document.querySelector('.contact-note');
-    const socialLinks = document.querySelector('.social-links');
-
-    if (contactLabel) contactLabel.textContent = site.contact.label;
-    if (contactNote) contactNote.textContent = site.contact.note;
-    if (socialLinks) renderContactLinks(socialLinks, site.contact.links);
-
-    document.querySelectorAll('.footer p').forEach(element => {
-        element.textContent = site.footer.text;
-    });
-
-    renderResume(site.resume);
+    if (page === 'home') renderHome(site);
+    if (page === 'resume') renderResume(site);
 }
 
-function renderResume(resume) {
-    const title = document.querySelector('.resume-title');
-    const download = document.querySelector('.resume-actions .secondary-btn');
-    const viewer = document.querySelector('.resume-viewer iframe');
-    const fallback = document.querySelector('.pdf-fallback');
+function renderHeader(site, page) {
+    const header = document.getElementById('site-header');
+    const links = [
+        { href: 'index.html', label: site.navigation.home, page: 'home' },
+        { href: 'portfolio.html', label: site.navigation.portfolio, page: 'portfolio' },
+        { href: 'resume.html', label: site.navigation.resume, page: 'resume' }
+    ];
 
-    if (!title) return;
-    title.textContent = resume.title;
-    if (download) {
-        download.href = resume.file;
-        download.download = resume.file.split('/').pop();
-        download.querySelector('span').textContent = resume.downloadLabel;
-    }
-    if (viewer) {
-        viewer.src = `${resume.file}#toolbar=1&view=FitH`;
-        viewer.title = resume.viewerTitle;
-    }
-    if (fallback) {
-        fallback.firstChild.textContent = `${resume.fallbackText} `;
-        const link = fallback.querySelector('a');
-        link.href = resume.file;
-        link.textContent = resume.fallbackLinkLabel;
-    }
+    const nav = document.createElement('nav');
+    nav.className = 'navbar';
+    const container = document.createElement('div');
+    container.className = 'nav-container';
+    const logo = document.createElement('div');
+    logo.className = 'nav-logo';
+    logo.textContent = site.logo;
+    const menu = document.createElement('ul');
+    menu.className = 'nav-menu';
+
+    links.forEach(linkData => {
+        const item = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = linkData.href;
+        link.className = `nav-link${page === linkData.page ? ' active' : ''}`;
+        link.textContent = linkData.label;
+        item.appendChild(link);
+        menu.appendChild(item);
+    });
+
+    container.append(logo, menu);
+    nav.appendChild(container);
+    header.replaceChildren(nav);
 }
 
-function renderContactLinks(container, links) {
-    container.replaceChildren();
+function renderFooter(site) {
+    const footer = document.createElement('footer');
+    footer.className = 'footer';
+    const text = document.createElement('p');
+    text.textContent = site.footer.text;
+    footer.appendChild(text);
+    document.getElementById('site-footer').replaceChildren(footer);
+}
 
-    links.forEach((link, index) => {
+function renderBackToTop() {
+    const button = document.createElement('button');
+    button.className = 'back-to-top';
+    button.id = 'backToTop';
+    button.type = 'button';
+    button.title = 'Back to top';
+    button.setAttribute('aria-label', 'Back to top');
+    button.textContent = '↑';
+    button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.body.appendChild(button);
+
+    window.addEventListener('scroll', () => {
+        button.classList.toggle('show', window.pageYOffset > 300);
+    });
+}
+
+function renderHome(site) {
+    const main = document.getElementById('page-content');
+    main.className = 'container';
+
+    const section = document.createElement('section');
+    section.className = 'hero';
+    const photo = document.createElement('div');
+    photo.className = 'hero-photo';
+    const profile = document.createElement('img');
+    profile.className = 'profile-image';
+    profile.src = site.hero.profileImage;
+    profile.alt = `${site.logo} profile photo`;
+    photo.appendChild(profile);
+
+    const content = document.createElement('div');
+    content.className = 'hero-content';
+    const title = document.createElement('h1');
+    title.className = 'hero-title';
+    title.textContent = site.hero.name;
+    const subtitle = document.createElement('p');
+    subtitle.className = 'hero-subtitle';
+    subtitle.textContent = site.hero.subtitle;
+    const description = document.createElement('p');
+    description.className = 'hero-description';
+    description.innerHTML = renderInlineMarkup(site.hero.description);
+    content.append(title, subtitle, description, renderContact(site.contact));
+    section.append(photo, content);
+    main.replaceChildren(section);
+}
+
+function renderContact(contact) {
+    const section = document.createElement('div');
+    section.className = 'contact-section';
+    const heading = document.createElement('div');
+    heading.className = 'contact-heading';
+    const label = document.createElement('p');
+    label.className = 'contact-label';
+    label.textContent = contact.label;
+    const note = document.createElement('p');
+    note.className = 'contact-note';
+    note.textContent = contact.note;
+    heading.append(label, note);
+
+    const links = document.createElement('div');
+    links.className = 'social-links';
+    contact.links.forEach((link, index) => {
         const isEmail = link.kind === 'email';
         const element = document.createElement(isEmail ? 'button' : 'a');
         element.className = `contact-link${index === 0 ? ' contact-link-primary' : ''}${isEmail ? ' copy-email' : ''}`;
-
         if (isEmail) {
             element.type = 'button';
             element.dataset.email = link.value;
             element.setAttribute('aria-label', `Copy ${link.label.toLowerCase()}`);
+            element.addEventListener('click', () => copyEmail(element, link.value));
         } else {
             element.href = link.value;
             element.target = '_blank';
@@ -97,18 +142,57 @@ function renderContactLinks(container, links) {
         icon.className = 'contact-link-icon';
         icon.setAttribute('aria-hidden', 'true');
         icon.textContent = link.icon;
-
-        const content = document.createElement('span');
-        const label = document.createElement('strong');
-        label.textContent = link.label;
+        const text = document.createElement('span');
+        const linkLabel = document.createElement('strong');
+        linkLabel.textContent = link.label;
         const detail = document.createElement('small');
         detail.textContent = link.detail;
-        content.append(label, detail);
-        element.append(icon, content);
-
-        if (isEmail) element.addEventListener('click', () => copyEmail(element, link.value));
-        container.appendChild(element);
+        text.append(linkLabel, detail);
+        element.append(icon, text);
+        links.appendChild(element);
     });
+
+    section.append(heading, links);
+    return section;
+}
+
+function renderResume(site) {
+    const main = document.getElementById('page-content');
+    main.className = 'resume-page';
+    const section = document.createElement('section');
+    section.className = 'resume-section';
+    const title = document.createElement('h1');
+    title.className = 'resume-title';
+    title.textContent = site.resume.title;
+    const actions = document.createElement('div');
+    actions.className = 'resume-actions';
+    const download = document.createElement('a');
+    download.className = 'secondary-btn';
+    download.href = site.resume.file;
+    download.download = site.resume.file.split('/').pop();
+    const downloadLabel = document.createElement('span');
+    downloadLabel.textContent = site.resume.downloadLabel;
+    download.appendChild(downloadLabel);
+    actions.appendChild(download);
+
+    const viewer = document.createElement('div');
+    viewer.className = 'resume-viewer';
+    const iframe = document.createElement('iframe');
+    iframe.src = `${site.resume.file}#toolbar=1&view=FitH`;
+    iframe.title = site.resume.viewerTitle;
+    iframe.loading = 'lazy';
+    const fallback = document.createElement('p');
+    fallback.className = 'pdf-fallback';
+    fallback.append(`${site.resume.fallbackText} `);
+    const fallbackLink = document.createElement('a');
+    fallbackLink.href = site.resume.file;
+    fallbackLink.target = '_blank';
+    fallbackLink.rel = 'noopener noreferrer';
+    fallbackLink.textContent = site.resume.fallbackLinkLabel;
+    fallback.append(fallbackLink, '.');
+    viewer.append(iframe, fallback);
+    section.append(title, actions, viewer);
+    main.replaceChildren(section);
 }
 
 async function copyEmail(element, email) {
@@ -122,14 +206,12 @@ async function copyEmail(element, email) {
         document.execCommand('copy');
         temporaryInput.remove();
     }
-
-    const emailText = element.querySelector('small');
+    const text = element.querySelector('small');
     element.classList.add('copied');
-    emailText.textContent = 'Copied to clipboard';
-
+    text.textContent = 'Copied to clipboard';
     window.setTimeout(() => {
         element.classList.remove('copied');
-        emailText.textContent = email;
+        text.textContent = email;
     }, 1800);
 }
 

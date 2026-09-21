@@ -1,124 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="home">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahyar Kazazi</title>
+    <title></title>
     <link rel="icon" href="./Assets/Favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260921-6">
+    <link rel="stylesheet" href="styles.css?v=20260921-7">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">Mahyar Kazazi</div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">Main</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="resume.html" class="nav-link">Resume</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="container">
-        <section class="hero">
-            <!-- Left Side - Photo -->
-            <div class="hero-photo">
-                <img src="./Assets/Profile.jpg" alt="Profile Photo" class="profile-image">
-            </div>
-
-            <!-- Right Side - Introduction -->
-            <div class="hero-content">
-                <h1 class="hero-title">I am Mahyar Kazazi</h1>
-                <p class="hero-subtitle">A Game Developer</p>
-                <p class="hero-description">
-                Hi! I'm <b>Mahyar</b>, a passionate developer with <b>2.5+ years</b> of practical experience in <b>Game</b> and <b>Arch-Viz</b> projects. I specialize in <b>Unreal Engine</b> and <b>C++</b>, and I'm looking forward to working on <b>serious</b> projects.</p>
-
-                <!-- Contact & Social Links -->
-                <div class="contact-section">
-                    <div class="contact-heading">
-                        <p class="contact-label">Let's connect</p>
-                        <p class="contact-note">Open to game development, custom tools, and Archviz projects.</p>
-                    </div>
-                    <div class="social-links">
-                        <button type="button" class="contact-link contact-link-primary copy-email" data-email="mahyar.kazazi.work@gmail.com" aria-label="Copy work email">
-                            <span class="contact-link-icon" aria-hidden="true">@</span>
-                            <span><strong>Work Email</strong><small>mahyar.kazazi.work@gmail.com</small></span>
-                        </button>
-                        <button type="button" class="contact-link copy-email" data-email="mahyar.kazazi.edu@gmail.com" aria-label="Copy academic email">
-                            <span class="contact-link-icon" aria-hidden="true">@</span>
-                            <span><strong>Academic Email</strong><small>mahyar.kazazi.edu@gmail.com</small></span>
-                        </button>
-                        <a href="https://linkedin.com/in/MahyarKazazi/" target="_blank" rel="noreferrer" class="contact-link">
-                            <span class="contact-link-icon" aria-hidden="true">in</span>
-                            <span><strong>LinkedIn</strong><small>Professional profile</small></span>
-                        </a>
-                        <a href="https://github.com/Mahyar-86/" target="_blank" rel="noreferrer" class="contact-link">
-                            <span class="contact-link-icon" aria-hidden="true">&lt;/&gt;</span>
-                            <span><strong>GitHub</strong><small>Projects and code</small></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 Mahyar. All rights reserved.</p>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" title="Back to top">↑</button>
-
+    <div id="site-header"></div>
+    <main id="page-content"></main>
+    <div id="site-footer"></div>
     <script src="site.js"></script>
-    <script>
-        const backToTopBtn = document.getElementById('backToTop');
-        const emailLinks = document.querySelectorAll('.copy-email');
-
-        emailLinks.forEach(function (emailLink) {
-            emailLink.addEventListener('click', async function (event) {
-                event.preventDefault();
-
-                const email = emailLink.dataset.email;
-                const emailText = emailLink.querySelector('small');
-
-                try {
-                    await navigator.clipboard.writeText(email);
-                } catch (error) {
-                    const temporaryInput = document.createElement('textarea');
-                    temporaryInput.value = email;
-                    document.body.appendChild(temporaryInput);
-                    temporaryInput.select();
-                    document.execCommand('copy');
-                    temporaryInput.remove();
-                }
-
-                emailLink.classList.add('copied');
-                emailText.textContent = 'Copied to clipboard';
-
-                window.setTimeout(function () {
-                    emailLink.classList.remove('copied');
-                    emailText.textContent = email;
-                }, 1800);
-            });
-        });
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
 </body>
 </html>

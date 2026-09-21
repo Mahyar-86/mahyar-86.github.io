@@ -1,76 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="resume">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Mahyar</title>
-    <link rel="stylesheet" href="styles.css?v=20260921-6">
+    <title></title>
+    <link rel="stylesheet" href="styles.css?v=20260921-7">
     <link rel="icon" href="./Assets/Favicon.svg" type="image/svg+xml">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">Mahyar Kazazi</div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Main</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="resume.html" class="nav-link active">Resume</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="resume-page">
-        <section class="resume-section">
-            <h1 class="resume-title">My Resume</h1>
-            <div class="resume-actions">
-                <a href="Assets/Mahyar_Kazazi_Resume.pdf" download="Mahyar_Kazazi_Resume.pdf" class="secondary-btn">
-                    <span>Download  PDF</span>
-                </a>
-            </div>
-
-            <div class="resume-viewer">
-                <iframe
-                    src="Assets/Mahyar_Kazazi_Resume.pdf#toolbar=1&view=FitH"
-                    title="Mahyar Kazazi resume"
-                    loading="lazy">
-                </iframe>
-                <p class="pdf-fallback">
-                    Your browser cannot display the resume here.
-                    <a href="Assets/Mahyar_Kazazi_Resume.pdf" target="_blank" rel="noopener noreferrer">Open the resume PDF</a>.
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 Mahyar. All rights reserved.</p>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" title="Back to top">↑</button>
-
+    <div id="site-header"></div>
+    <main id="page-content"></main>
+    <div id="site-footer"></div>
     <script src="site.js"></script>
-    <script>
-        const backToTopBtn = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-
 </body>
 </html>

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (!response.ok) throw new Error(`Could not load portfolio content: ${response.status}`);
         const portfolio = await response.json();
         renderPortfolio(portfolio);
+        renderLightbox();
         initializePortfolioInteractions();
     } catch (error) {
         console.error('Portfolio content could not be loaded.', error);
@@ -11,8 +12,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function renderPortfolio(portfolio) {
-    const wrapper = document.querySelector('.portfolio-wrapper');
-    if (!wrapper) return;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'portfolio-wrapper';
 
     const sidebar = document.createElement('aside');
     sidebar.className = 'portfolio-sidebar';
@@ -46,7 +47,24 @@ function renderPortfolio(portfolio) {
         sidebar.appendChild(section);
     });
 
-    wrapper.replaceChildren(sidebar, content);
+    wrapper.append(sidebar, content);
+    document.getElementById('page-content').replaceChildren(wrapper);
+}
+
+function renderLightbox() {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.id = 'lightbox';
+    const content = document.createElement('div');
+    content.className = 'lightbox-content';
+    content.innerHTML = `
+        <button class="lightbox-close" id="lightboxClose" type="button">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev" type="button">&#10094;</button>
+        <button class="lightbox-next" id="lightboxNext" type="button">&#10095;</button>
+        <div class="lightbox-media-container" id="lightboxMediaContainer"></div>
+        <div class="lightbox-thumbnails" id="lightboxThumbnails"></div>`;
+    lightbox.appendChild(content);
+    document.body.appendChild(lightbox);
 }
 
 function renderProject(project, projectNumber) {
