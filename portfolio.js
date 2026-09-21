@@ -47,8 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Call on page load
     addMoreBadges();
 
-    // Call on page load
-    addMoreBadges();
+    let touchStartX = 0;
 
     // Open lightbox when clicking gallery items
     galleryItems.forEach(item => {
@@ -109,6 +108,20 @@ document.addEventListener('DOMContentLoaded', function() {
         displayLightboxMedia();
     });
 
+    lightboxMediaContainer.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightboxMediaContainer.addEventListener('touchend', function(e) {
+        const distance = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(distance) < 45 || currentProjectMedia.length < 2) return;
+
+        currentMediaIndex = distance > 0
+            ? (currentMediaIndex - 1 + currentProjectMedia.length) % currentProjectMedia.length
+            : (currentMediaIndex + 1) % currentProjectMedia.length;
+        displayLightboxMedia();
+    }, { passive: true });
+
     // Keyboard navigation
     document.addEventListener('keydown', function(e) {
         if (!lightbox.classList.contains('active')) return;
@@ -145,6 +158,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const video = document.createElement('video');
             video.controls = true;
             video.autoplay = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
             
             // Get source elements from original video
             const sources = media.querySelectorAll('source');

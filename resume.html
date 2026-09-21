@@ -6,7 +6,6 @@
     <title>Resume - Mahyar</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="./Assets/Favicon.svg" type="image/svg+xml">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -16,53 +15,31 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Main</a></li>
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="resume.html" class="nav-link active">CV / Resume</a></li>
+                <li><a href="resume.html" class="nav-link active">Resume</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="pdf-container">
+    <main class="resume-page">
         <section class="resume-section">
-            <h1 class="resume-title">My CV & Resume</h1>
-            
-            <!-- Documents Container -->
-            <div class="documents-container">
-                <!-- CV Column -->
-                <div class="document-column">
-                    <h2 class="document-title">CV</h2>
-                    
-                    <!-- Download Button -->
-                    <div class="document-button-container">
-                        <a href="Assets/Mahyar_Kazazi_CV.pdf" download="Mahyar_Kazazi_CV.pdf" class="primary-btn">
-                            <span>⬇ Download CV</span>
-                        </a>
-                    </div>
+            <h1 class="resume-title">My Resume</h1>
+            <div class="resume-actions">
+                <a href="Assets/Mahyar_Kazazi_Resume.pdf" download="Mahyar_Kazazi_Resume.pdf" class="secondary-btn">
+                    <span>Download  PDF</span>
+                </a>
+            </div>
 
-                    <!-- PDF Preview -->
-                    <div class="pdf-preview-container">
-                        <div id="cvViewer" class="pdf-viewer"></div>
-                        <div id="cvPageInfo" class="pdf-page-info">Loading CV...</div>
-                    </div>
-                </div>
-
-                <!-- Resume Column -->
-                <div class="document-column">
-                    <h2 class="document-title">Resume</h2>
-                    
-                    <!-- Download Button -->
-                    <div class="document-button-container">
-                        <a href="Assets/Mahyar_Kazazi_Resume.pdf" download="Mahyar_Kazazi_Resume.pdf" class="secondary-btn">
-                            <span>⬇ Download Resume</span>
-                        </a>
-                    </div>
-
-                    <!-- PDF Preview -->
-                    <div class="pdf-preview-container">
-                        <div id="resumeViewer" class="pdf-viewer"></div>
-                        <div id="resumePageInfo" class="pdf-page-info">Loading Resume...</div>
-                    </div>
-                </div>
+            <div class="resume-viewer">
+                <iframe
+                    src="Assets/Mahyar_Kazazi_Resume.pdf#toolbar=1&view=FitH"
+                    title="Mahyar Kazazi resume"
+                    loading="lazy">
+                </iframe>
+                <p class="pdf-fallback">
+                    Your browser cannot display the resume here.
+                    <a href="Assets/Mahyar_Kazazi_Resume.pdf" target="_blank" rel="noopener noreferrer">Open the resume PDF</a>.
+                </p>
             </div>
         </section>
     </main>
@@ -94,6 +71,5 @@
         });
     </script>
 
-    <script src="resume.js"></script>
 </body>
 </html>
