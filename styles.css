@@ -136,7 +136,7 @@ background-color: var(--color-secondary);
 }
 /* Main Container */
 .container {
-max-width: 1200px;
+max-width: 1300px;
 margin: 0 auto;
 padding: 4rem 2rem;
 }
@@ -221,20 +221,22 @@ font-size: 0.85rem;
 text-align: right;
 }
 .social-links {
-display: flex;
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
 gap: 1rem;
-flex-wrap: wrap;
 }
 .contact-link {
 display: flex;
 align-items: center;
 gap: 0.75rem;
-flex: 1 1 210px;
+width: 100%;
 min-width: 0;
 padding: 0.75rem;
 border: 1px solid var(--color-border-dark);
 border-radius: 6px;
 color: var(--color-text-primary);
+font: inherit;
+text-align: left;
 text-decoration: none;
 background-color: var(--color-bg-secondary);
 transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
@@ -246,6 +248,12 @@ background-color: var(--color-primary-transparent-10);
 transform: translateY(-2px);
 }
 .contact-link-primary {
+border-color: var(--color-primary);
+}
+.copy-email {
+cursor: copy;
+}
+.copy-email.copied {
 border-color: var(--color-primary);
 }
 .contact-link-icon {
@@ -262,16 +270,22 @@ font-weight: 800;
 .contact-link strong,
 .contact-link small {
 display: block;
-overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
+}
+.contact-link > span:last-child {
+min-width: 0;
+user-select: text;
 }
 .contact-link strong {
 font-size: 0.9rem;
 }
 .contact-link small {
-color: var(--color-text-tertiary);
-font-size: 0.75rem;
+color: var(--color-text-secondary);
+font-size: 0.8rem;
+line-height: 1.4;
+overflow-wrap: anywhere;
+}
+.copy-email.copied small {
+color: var(--color-primary);
 }
 .twitter:hover {
 background-color: var(--color-secondary);
@@ -1134,7 +1148,7 @@ padding: 2rem 1rem;
 }
 
 .social-links {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     width: 100%;
 }
 

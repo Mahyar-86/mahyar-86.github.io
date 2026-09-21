@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahyar Kazazi</title>
     <link rel="icon" href="./Assets/Favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260921">
+    <link rel="stylesheet" href="styles.css?v=20260921-6">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -39,18 +39,18 @@
                 <!-- Contact & Social Links -->
                 <div class="contact-section">
                     <div class="contact-heading">
-                        <p class="contact-label">Get in touch</p>
-                        <p class="contact-note">Open to game development, tools, and technical art conversations.</p>
+                        <p class="contact-label">Let's connect</p>
+                        <p class="contact-note">Open to game development, custom tools, and Archviz projects.</p>
                     </div>
                     <div class="social-links">
-                        <a href="mailto:rihem1386@gmail.com" class="contact-link contact-link-primary">
+                        <button type="button" class="contact-link contact-link-primary copy-email" data-email="mahyar.kazazi.work@gmail.com" aria-label="Copy work email">
                             <span class="contact-link-icon" aria-hidden="true">@</span>
-                            <span><strong>Work with me</strong><small>rihem1386@gmail.com</small></span>
-                        </a>
-                        <a href="mailto:mahyar.kazazi.edu@gmail.com" class="contact-link">
+                            <span><strong>Work Email</strong><small>mahyar.kazazi.work@gmail.com</small></span>
+                        </button>
+                        <button type="button" class="contact-link copy-email" data-email="mahyar.kazazi.edu@gmail.com" aria-label="Copy academic email">
                             <span class="contact-link-icon" aria-hidden="true">@</span>
-                            <span><strong>Academic email</strong><small>mahyar.kazazi.edu@gmail.com</small></span>
-                        </a>
+                            <span><strong>Academic Email</strong><small>mahyar.kazazi.edu@gmail.com</small></span>
+                        </button>
                         <a href="https://linkedin.com/in/MahyarKazazi/" target="_blank" rel="noreferrer" class="contact-link">
                             <span class="contact-link-icon" aria-hidden="true">in</span>
                             <span><strong>LinkedIn</strong><small>Professional profile</small></span>
@@ -75,6 +75,35 @@
 
     <script>
         const backToTopBtn = document.getElementById('backToTop');
+        const emailLinks = document.querySelectorAll('.copy-email');
+
+        emailLinks.forEach(function (emailLink) {
+            emailLink.addEventListener('click', async function (event) {
+                event.preventDefault();
+
+                const email = emailLink.dataset.email;
+                const emailText = emailLink.querySelector('small');
+
+                try {
+                    await navigator.clipboard.writeText(email);
+                } catch (error) {
+                    const temporaryInput = document.createElement('textarea');
+                    temporaryInput.value = email;
+                    document.body.appendChild(temporaryInput);
+                    temporaryInput.select();
+                    document.execCommand('copy');
+                    temporaryInput.remove();
+                }
+
+                emailLink.classList.add('copied');
+                emailText.textContent = 'Copied to clipboard';
+
+                window.setTimeout(function () {
+                    emailLink.classList.remove('copied');
+                    emailText.textContent = email;
+                }, 1800);
+            });
+        });
         
         window.addEventListener('scroll', function() {
             if (window.pageYOffset > 300) {
