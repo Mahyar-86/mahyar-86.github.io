@@ -159,6 +159,8 @@ function renderContact(contact) {
 function renderResume(site) {
     const main = document.getElementById('page-content');
     main.className = 'resume-page';
+    const resumeUrl = new URL(site.resume.file, document.baseURI);
+    resumeUrl.searchParams.set('v', Date.now().toString());
     const section = document.createElement('section');
     section.className = 'resume-section';
     const title = document.createElement('h1');
@@ -168,8 +170,8 @@ function renderResume(site) {
     actions.className = 'resume-actions';
     const download = document.createElement('a');
     download.className = 'secondary-btn';
-    download.href = site.resume.file;
-    download.download = site.resume.file.split('/').pop();
+    download.href = resumeUrl.href;
+    download.download = resumeUrl.pathname.split('/').pop();
     const downloadLabel = document.createElement('span');
     downloadLabel.textContent = site.resume.downloadLabel;
     download.appendChild(downloadLabel);
@@ -178,14 +180,14 @@ function renderResume(site) {
     const viewer = document.createElement('div');
     viewer.className = 'resume-viewer';
     const iframe = document.createElement('iframe');
-    iframe.src = `${site.resume.file}#toolbar=1&view=FitH`;
+    iframe.src = `${resumeUrl.href}#toolbar=1&view=FitH`;
     iframe.title = site.resume.viewerTitle;
     iframe.loading = 'lazy';
     const fallback = document.createElement('p');
     fallback.className = 'pdf-fallback';
     fallback.append(`${site.resume.fallbackText} `);
     const fallbackLink = document.createElement('a');
-    fallbackLink.href = site.resume.file;
+    fallbackLink.href = resumeUrl.href;
     fallbackLink.target = '_blank';
     fallbackLink.rel = 'noopener noreferrer';
     fallbackLink.textContent = site.resume.fallbackLinkLabel;
